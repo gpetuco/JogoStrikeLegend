@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://cng6a8v721ric"]
+
+[ext_resource type="PackedScene" uid="uid://cwevdboaafka1" path="res://player/anim_player.tscn" id="1_2irtg"]
+[ext_resource type="Texture2D" uid="uid://bjn7wd6c1pr1b" path="res://bricks/Bluerock_Texture.jpg" id="2_kwuoi"]
+[ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="3_urwkr"]
+[ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="4_vmbb4"]
+[ext_resource type="Texture2D" uid="uid://bswa42qlqa4rl" path="res://grass/grass3.png" id="5_2trmw"]
+[ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="6_m4dhf"]
+[ext_resource type="Texture2D" uid="uid://c1842t64r54gl" path="res://grass/grass5.png" id="7_65aly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5djgs"]
+size = Vector2(42, 353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7t4p"]
+size = Vector2(378, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8je3f"]
+size = Vector2(274, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k74dt"]
+size = Vector2(187, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxqxp"]
+size = Vector2(82, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp84x"]
+size = Vector2(39, 41)
+
+[node name="Level" type="Node"]
+
+[node name="AnimPlayer" parent="." instance=ExtResource("1_2irtg")]
+position = Vector2(-191, 258)
+
+[node name="Camera2D" parent="AnimPlayer" index="2"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Scenery" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery"]
+position = Vector2(814, 85)
+metadata/_edit_group_ = true
+
+[node name="BluerockTexture" type="Sprite2D" parent="Scenery/StaticBody2D"]
+scale = Vector2(0.175781, 1.38281)
+texture = ExtResource("2_kwuoi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/StaticBody2D"]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5djgs")
+
+[node name="Grass1" type="Sprite2D" parent="Scenery"]
+position = Vector2(490, 175)
+texture = ExtResource("3_urwkr")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery/Grass1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Grass1/StaticBody2D"]
+visible = false
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_u7t4p")
+
+[node name="Grass2" type="Sprite2D" parent="Scenery"]
+position = Vector2(-184, 371)
+texture = ExtResource("4_vmbb4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery/Grass2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Grass2/StaticBody2D"]
+visible = false
+position = Vector2(5, -1.5)
+shape = SubResource("RectangleShape2D_8je3f")
+
+[node name="Grass3" type="Sprite2D" parent="Scenery"]
+position = Vector2(95, 270)
+texture = ExtResource("5_2trmw")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery/Grass3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Grass3/StaticBody2D"]
+visible = false
+position = Vector2(7.5, -1.5)
+shape = SubResource("RectangleShape2D_k74dt")
+
+[node name="Grass4" type="Sprite2D" parent="Scenery"]
+position = Vector2(239, 5)
+texture = ExtResource("6_m4dhf")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery/Grass4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Grass4/StaticBody2D"]
+visible = false
+position = Vector2(5, -1.5)
+shape = SubResource("RectangleShape2D_cxqxp")
+
+[node name="Grass5" type="Sprite2D" parent="Scenery"]
+position = Vector2(443, -130)
+texture = ExtResource("7_65aly")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scenery/Grass5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scenery/Grass5/StaticBody2D"]
+visible = false
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_jp84x")
+
+[node name="SceneLimit" type="Marker2D" parent="."]
+position = Vector2(693, 552)
+
+[editable path="AnimPlayer"]
